@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jeu de piste</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+<h1>🧭 Jeu de piste</h1>
+<p>Scanne le premier QR code pour commencer.</p>
+<button class="btn" onclick="demarrer()">Démarrer</button>
+</div>
+
+
+<script>
+function demarrer() {
+localStorage.setItem("etape_max", "1");
+window.location.href = "etape.html?id=1";
+}
+</script>
+</body>
+</html>

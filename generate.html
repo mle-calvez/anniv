@@ -1,0 +1,34 @@
+<head>
+<meta charset="UTF-8" />
+<title>Générateur QR</title>
+</head>
+<body>
+<h1>QR Codes du jeu</h1>
+<div id="qrs"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="data.js"></script>
+<script>
+const BASE = "https://ton-site.com/"; // À MODIFIER
+const c = document.getElementById("qrs");
+
+
+Object.keys(etapes).forEach(id => {
+const e = document.createElement("div");
+e.innerHTML = `<h3>Étape ${id}</h3>`;
+
+
+QRCode.toCanvas(document.createElement("canvas"), BASE + `etape.html?id=${id}`,
+(err, canvas) => e.appendChild(canvas));
+
+
+QRCode.toCanvas(document.createElement("canvas"), BASE + `reponse.html?etape=${id}&rep=${etapes[id].reponse}`,
+(err, canvas) => e.appendChild(canvas));
+
+
+c.appendChild(e);
+});
+</script>
+</body>
+</html>
