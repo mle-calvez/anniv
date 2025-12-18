@@ -1,34 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<title>Générateur QR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de QR codes</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .qr { margin: 20px 0; text-align: center; }
+    canvas { border: 1px solid #ccc; margin-top: 5px; }
+  </style>
 </head>
 <body>
-<h1>QR Codes du jeu</h1>
-<div id="qrs"></div>
+  <h1>Générateur de QR codes pour le jeu de piste</h1>
+  <div id="qrs"></div>
 
+  <script src="data.js"></script>
+  <script>
+    const container = document.getElementById('qrs');
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-<script src="data.js"></script>
-<script>
-const BASE = "https://mle-calvez.github.io/anniv/"; // À MODIFIER
-const c = document.getElementById("qrs");
+    for (const id in etapes) {
+      const rep = encodeURIComponent(etapes[id].reponse);
+      const url = `reponse.html?rep=${rep}`;
 
+      const div = document.createElement('div');
+      div.className = 'qr';
+      const title = document.createElement('h3');
+      title.textContent = `Étape ${id} – Réponse: ${etapes[id].reponse}`;
+      div.appendChild(title);
 
-Object.keys(etapes).forEach(id => {
-const e = document.createElement("div");
-e.innerHTML = `<h3>Étape ${id}</h3>`;
+      const canvas = document.createElement('canvas');
+      div.appendChild(canvas);
 
+      container.appendChild(div);
 
-QRCode.toCanvas(document.createElement("canvas"), BASE + `etape.html?id=${id}`,
-(err, canvas) => e.appendChild(canvas));
-
-
-QRCode.toCanvas(document.createElement("canvas"), BASE + `reponse.html?etape=${id}&rep=${etapes[id].reponse}`,
-(err, canvas) => e.appendChild(canvas));
-
-
-c.appendChild(e);
-});
-</script>
+      QRCode.toCanvas(canvas, url, { width: 200 }, function (error) {
+        if (error) console.error(error);
+      });
+    }
+  </script>
 </body>
 </html>
