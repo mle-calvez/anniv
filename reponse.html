@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bonne réponse</title>
+  <title>Bonne réponse sécurisée</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       const etapeId = parseInt(params.get("etape"), 10);
-      const rep = params.get("rep");
+      const token = params.get("token");
 
       const etapeMax = parseInt(localStorage.getItem("etape_max") || "1", 10);
 
@@ -32,26 +32,31 @@
         window.history.back();
       });
 
-      // Vérifier si étape valide
-      if (!etapes[etapeId] || etapeId > etapeMax) {
-        resultat.innerText = "⛔ QR non valide";
-        message.innerText = "Ce QR ne correspond pas à ton avancée.";
+      // Vérification stricte : étape actuelle et token QR
+      if (!etapes[etapeId]) {
+        resultat.innerText = "⛔ Étape inconnue";
+        message.innerText = "Cette étape n'existe pas.";
         retourBtn.style.display = "inline-block";
-      } else if (rep === etapes[etapeId].reponse) {
+      } else if (etapeId !== etapeMax) {
+        resultat.innerText = "⛔ QR non valide";
+        message.innerText = "Tu dois résoudre les étapes dans l'ordre.";
+        retourBtn.style.display = "inline-block";
+      } else if (token !== etapes[etapeId].token) {
+        resultat.innerText = "⛔ QR non valide";
+        message.innerText = "Ce QR ne correspond pas à la bonne étape.";
+        retourBtn.style.display = "inline-block";
+      } else {
         // Bonne réponse
-        resultat.innerText = "✅ Bonne réponse !";
-        message.innerText = etapes[etapeId].suivante ? "Tu peux passer à l'étape suivante." : "🎉 Tu as terminé le jeu !";
-
         if (etapes[etapeId].suivante) {
           localStorage.setItem("etape_max", etapes[etapeId].suivante.toString());
+          resultat.innerText = "✅ Bonne réponse !";
+          message.innerText = "Tu peux passer à l'étape suivante.";
           btnSuivante.href = `etape.html?id=${etapes[etapeId].suivante}`;
           btnSuivante.style.display = "inline-block";
+        } else {
+          resultat.innerText = "🎉 Félicitations !";
+          message.innerText = "Tu as terminé le jeu.";
         }
-      } else {
-        // Mauvaise réponse
-        resultat.innerText = "❌ Mauvaise réponse";
-        message.innerText = "Ce n’est pas le bon QR code.";
-        retourBtn.style.display = "inline-block";
       }
     });
   </script>
