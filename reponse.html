@@ -45,8 +45,7 @@
         if (etape.suivante) {
           etapeMax = etape.suivante;
           localStorage.setItem("etape_max", etapeMax.toString());
-          resultat.innerText = "✅ Bonne réponse !";
-          message.innerText = etape.message; // affiche le message personnalisé
+          resultat.innerText = "✅ ".etape.message;
           btnSuivante.href = `etape.html?id=${etapeMax}`;
           btnSuivante.style.display = "inline-block";
         } else {
