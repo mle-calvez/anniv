@@ -15,15 +15,15 @@ const etapes = {
     background: "images/etape2.jpg",
     music: "audio/etape2.mp3",
     suivante: 3,
-    message: "Te voilà bien réchauffé ! Merci Mamie Any"
+    message: "Te voilà bien réchauffé ! Merci Mamie Any !"
   },
   3: {
     question: "Les préparatifs (fin)",
-    explication: "Partir les poches vides, est-bien raisonnable ?",
+    explication: "Partir les poches vides, est-ce bien raisonnable ?",
     reponse: "3",
     background: "images/etape3.jpg",
     music: "audio/etape3.mp3",
-    suivante: null,
+    suivante: 4,
     message: "Mamie Any a tout prévu, un peu d'argent de poche pour subsister ! Bon cette fois, je pense que tu es prêt à voyager !"
   },
   4: {
@@ -32,7 +32,7 @@ const etapes = {
     reponse: "4",
     background: "images/etape4.jpg",
     music: "audio/etape4.mp3",
-    suivante: null,
+    suivante: 5,
     message: "Eh oui, ta destination est La Rochelle !"
   },
   5: {
@@ -41,7 +41,7 @@ const etapes = {
     reponse: "5",
     background: "images/etape6jpg",
     music: "audio/etape5.mp3",
-    suivante: null,
+    suivante: 6,
     message: "Effectivement, tu partiras du 11 au 13 juillet ! Bon le manteau sera peut-être un peu chaud ...^^"
   },
   6: {
@@ -50,7 +50,7 @@ const etapes = {
     reponse: "6",
     background: "images/etape6.jpg",
     music: "audio/etape6.mp3",
-    suivante: null,
+    suivante: 7,
     message: "Bon, apparemment, tu as déjà une réservation, tu peux en découvrir le détail <a href=\'https://www.airbnb.fr/rooms/33961269?guests=1&adults=1&s=67&unique_share_id=e5880008-6f52-4970-a1ca-3562ebc57f39\'>ici</a> "
   },
 };
