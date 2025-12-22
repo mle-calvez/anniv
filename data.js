@@ -6,7 +6,7 @@ const etapes = {
     background: "images/etape1.jpg",
     music: "audio/etape1.mp3",
     suivante: 2,
-    message: "Bravo ! Tu as trouvé le trésor de l'étape 1 !"
+    message: "Ok, tu as la casquette !"
   },
   2: {
     question: "Ok, tu as la casquette !",
