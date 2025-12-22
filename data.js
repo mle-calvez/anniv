@@ -1,15 +1,17 @@
 const etapes = {
   1: {
-    question: "Où se trouve le trésor ?",
-    reponse: "A",
+    question: "Les préparatifs",
+    explication: "Pour voyager il faut être équipé de la tête aux pieds ... mais il faut bien commencer par une extrémité !",
+    reponse: "1",
     background: "images/etape1.jpg",
     music: "audio/etape1.mp3",
     suivante: 2,
     message: "Bravo ! Tu as trouvé le trésor de l'étape 1 !"
   },
   2: {
-    question: "Quelle est la couleur du dragon ?",
-    reponse: "Rouge",
+    question: "Ok, tu as la casquette !",
+    explication: "Pour voyager il faut être équipé de la tête aux pieds ... mais il faut bien commencer par une extrémité !",
+    reponse: "2",
     background: "images/etape2.jpg",
     music: "audio/etape2.mp3",
     suivante: 3,
