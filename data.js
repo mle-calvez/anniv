@@ -45,7 +45,7 @@ const etapes = {
     message: "Effectivement, tu partiras du 11 au 13 juillet ! Bon le manteau sera peut-être un peu chaud ...^^"
   },
   6: {
-    question: "Où dormir ?",
+    question: "Où dormir à La Rochelle ?",
     explication: "Ton pucier le sait ...",
     reponse: "6",
     background: "images/etape6.jpg",
@@ -54,8 +54,8 @@ const etapes = {
     message: "Bon, apparemment, tu as déjà une réservation, tu peux en découvrir le détail <a target=\'_blank\' href=\'https://www.airbnb.fr/rooms/33961269?guests=1&adults=1&s=67&unique_share_id=e5880008-6f52-4970-a1ca-3562ebc57f39\'>ici</a> "
   },
   7: {
-    question: "Où manger ?",
-    explication: "Puise dans tes souvenirs, et trouve le code suivant dans l'ingrédient principal !",
+    question: "Où manger à la Rochelle ?",
+    explication: "Puise dans tes souvenirs, et trouve le code suivant dans le seul ingrédient indispensable à ce souvenir !",
     reponse: "7",
     background: "images/etape7.jpg",
     music: "audio/etape7.mp3",
@@ -73,7 +73,7 @@ const etapes = {
   },
   9: {
     question: "Pour voir qui ?",
-    explication: "tu le sauras en parcourant son oeuvre :)",
+    explication: "Tu le sauras en parcourant son oeuvre :)",
     reponse: "9",
     background: "images/etape9.jpg",
     music: "audio/etape9.mp3",
@@ -87,6 +87,6 @@ const etapes = {
     background: "images/etape10.jpg",
     music: "audio/etape10.mp3",
     suivante: null,
-    message: "Orelsan Et Gaël Faye sur la scène des Francofolies le 12 juillet, on y sera ! Joyeux Nowel !"
+    message: "Orelsan Et Gaël Faye sur la scène des Francofolies le 12 juillet, on y sera !<br>Joyeux Nowel mon fils !!!"
   }
 };
